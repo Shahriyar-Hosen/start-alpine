@@ -17,15 +17,17 @@
 
       <!-- X-data -->
       <div x-data="{open: false, name: 'salman'}">
-        <!-- x-on -->
+
+        <!-- x-on & x-bind -->
         <button
           x-on:click="open = !open"
-          class="bg-slate-700 text-white px-4 py-2 rounded-xl"
+          x-bind:class="open ? 'bg-blue-800' : 'bg-slate-700'"
+          class="text-white px-4 py-2 rounded-xl"
         >
           Toggle
         </button>
 
-        <!-- x-show -->
+        <!-- x-show & x-transition -->
         <div x-show="open" x-transition x-cloak class="max-w-sm">
           <p class="bg-gray-200 p-4 my-6 rounded">
             The first duty of a human being is to assume the right functional
