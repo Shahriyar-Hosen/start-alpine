@@ -13,14 +13,27 @@
   </head>
   <body>
     <div class="container mx-auto mt-6 max-w-lg">
-      <h1 class="text-5xl mb-8">Alpine js Toggle Button</h1>
+      <h1 class="text-5xl mb-8">Alpine js Demo</h1>
 
       <!-- X-data -->
-      <div x-data="{open: false, name: 'salman', search: ''}">
+      <div
+        x-data="{
+        open: false, 
+        name: 'salman', 
+        search: '',
+        posts:[
+        {title: 'Post One'},
+        {title: 'Post Two'},
+        {title: 'Post Three'},
+        {title: 'Post Four'},
+        ]
+      }"
+      >
         <!-- x-on & x-bind -->
+        <!-- x-bind:class="" -->
         <button
           x-on:click="open = !open"
-          x-bind:class="open ? 'bg-blue-800' : 'bg-slate-700'"
+          :class="open ? 'bg-blue-800' : 'bg-slate-700'"
           class="text-white px-4 py-2 rounded-xl"
         >
           Toggle
@@ -61,6 +74,14 @@
         <template x-if="open">
           <div class="bg-gray-200 p-2 mt-8">Template based on a condition</div>
         </template>
+
+        <!-- x-for -->
+        <div>
+          <h3 class="text-2xl mt-6 mb-3 font-bold">Posts</h3>
+          <template x-for="post in posts">
+            <div x-text="post.title"></div>
+          </template>
+        </div>
       </div>
     </div>
 
