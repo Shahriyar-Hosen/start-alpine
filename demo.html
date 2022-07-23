@@ -126,7 +126,15 @@
         <!-- x-init & Watch -->
         <div x-init="$watch('posts', value => console.log(value))"></div>
 
-
+        <!-- $Dispatch -->
+        <div @notify="alert('You have been notified!')">
+          <button
+            @click="$dispatch('notify')"
+            class="bg-green-700 text-white p-2 mt-4 rounded-lg"
+          >
+            Notify
+          </button>
+        </div>
       </div>
     </div>
 
