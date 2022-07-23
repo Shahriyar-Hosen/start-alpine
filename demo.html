@@ -91,6 +91,25 @@
             Add Post
           </button>
         </div>
+
+        <!-- X-ref & $refs -->
+        <!-- Add & Remove only one click work it -->
+        <div class="py-6">
+          <div x-ref="text"></div>
+
+          <button
+            @click="$refs.text.innerText = 'Hello World'"
+            class="bg-black text-white p-2 rounded-lg"
+          >
+            Click Add
+          </button>
+          <button
+            @click="$refs.text.remove()"
+            class="bg-black text-white p-2 rounded-lg"
+          >
+            Click Remove
+          </button>
+        </div>
       </div>
     </div>
 
