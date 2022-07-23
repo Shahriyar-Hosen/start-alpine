@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+    </style>
     <title>Toggle Button</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="container mx-auto mt-6 max-w-lg">
+      <h1 class="text-5xl mb-8">Alpine js Toggle Button</h1>
+      <div x-data="{open: false}">
+        <button
+          x-on:click="open = !open"
+          class="bg-slate-700 text-white px-4 py-2 rounded-xl"
+        >
+          Toggle
+        </button>
+
+        <div x-show="open" x-cloak class="max-w-sm">
+          <p class="bg-gray-200 p-4 my-6 rounded">
+            The first duty of a human being is to assume the right functional
+            relationship to society - more briefly, to find your real job, and
+            do it.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--------------------- Script --------------------->
+
+    <!-- CDN -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-------------------------------------------->
+  </body>
 </html>
