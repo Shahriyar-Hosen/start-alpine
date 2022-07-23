@@ -9,12 +9,15 @@
         display: none;
       }
     </style>
-    <title>Toggle Button</title>
+    <title>Alpine Js Demo</title>
   </head>
   <body>
     <div class="container mx-auto mt-6 max-w-lg">
       <h1 class="text-5xl mb-8">Alpine js Toggle Button</h1>
-      <div x-data="{open: false}">
+
+      <!-- X-data -->
+      <div x-data="{open: false, name: 'salman'}">
+        <!-- x-on -->
         <button
           x-on:click="open = !open"
           class="bg-slate-700 text-white px-4 py-2 rounded-xl"
@@ -22,12 +25,18 @@
           Toggle
         </button>
 
-        <div x-show="open" x-cloak class="max-w-sm">
+        <!-- x-show -->
+        <div x-show="open" x-transition x-cloak class="max-w-sm">
           <p class="bg-gray-200 p-4 my-6 rounded">
             The first duty of a human being is to assume the right functional
             relationship to society - more briefly, to find your real job, and
             do it.
           </p>
+        </div>
+
+        <!-- x-text -->
+        <div class="my-4">
+          The value of name is <span x-text="name" class="font-bold"></span>
         </div>
       </div>
     </div>
