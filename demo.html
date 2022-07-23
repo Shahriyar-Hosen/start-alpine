@@ -11,9 +11,16 @@
     </style>
     <title>Alpine Js Demo</title>
   </head>
-  <body>
+  <body x-data :class="$store.darkMode.on && 'bg-gray-800 text-white'">
     <div class="container mx-auto mt-6 max-w-lg">
       <h1 class="text-5xl mb-8">Alpine js Demo</h1>
+      <button
+        @click="$store.darkMode.toggle()"
+        :class="$store.darkMode.on && 'bg-gray-600'"
+        class="block my-4 rounded-lg text-xs bg-gray-200 px-4 py-2"
+      >
+        Toggle Dark Mode
+      </button>
 
       <!-- X-data -->
       <div
@@ -61,7 +68,7 @@
           <input
             x-model="search"
             type="text"
-            class="border p-2 w-full mb-2 mt-6"
+            class="border p-2 w-full mb-2 mt-6 rounded-lg"
             placeholder="Search for something..."
           />
           <p>
@@ -86,6 +93,7 @@
           <!-- x-on:click="" -->
           <button
             @click="posts.push({title: 'New Post'})"
+            :class="$store.darkMode.on && 'bg-blue-900 text-white'"
             class="bg-blue-800 text-white px-4 py-2 rounded-lg mt-4"
           >
             Add Post
@@ -99,12 +107,14 @@
 
           <button
             @click="$refs.text.innerText = 'Hello World'"
+            :class="$store.darkMode.on && 'bg-gray-900 text-white'"
             class="bg-black text-white p-2 rounded-lg"
           >
             Click Add
           </button>
           <button
             @click="$refs.text.remove()"
+            :class="$store.darkMode.on && 'bg-gray-900 text-white'"
             class="bg-black text-white p-2 rounded-lg"
           >
             Click Remove
@@ -130,6 +140,7 @@
         <div @notify="alert('You have been notified!')">
           <button
             @click="$dispatch('notify')"
+            :class="$store.darkMode.on && 'bg-green-900 text-white'"
             class="bg-green-700 text-white p-2 mt-4 rounded-lg"
           >
             Notify
@@ -140,7 +151,8 @@
         <div>
           <button
             @click="getLatestPost($data.posts)"
-            class="bg-orange-800 text-white mt-6 p-2 rounded-lg"
+            :class="$store.darkMode.on && 'bg-orange-900 text-white'"
+            class="bg-orange-700 text-white mt-6 p-2 rounded-lg"
           >
             Get Latest Post
           </button>
@@ -177,6 +189,19 @@
       const getLatestPost = (Posts) => {
         console.log(posts.slice(-1).pop());
       };
+    </script>
+
+    <!-- Stores: Dark Mode -->
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.store("darkMode", {
+          on: false,
+
+          toggle() {
+            this.on = !this.on;
+          },
+        });
+      });
     </script>
   </body>
 </html>
