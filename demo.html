@@ -16,8 +16,7 @@
       <h1 class="text-5xl mb-8">Alpine js Toggle Button</h1>
 
       <!-- X-data -->
-      <div x-data="{open: false, name: 'salman'}">
-
+      <div x-data="{open: false, name: 'salman', search: ''}">
         <!-- x-on & x-bind -->
         <button
           x-on:click="open = !open"
@@ -43,6 +42,20 @@
 
         <!-- x-effect -->
         <div x-effect="console.log(open)"></div>
+
+        <!-- x-model -->
+        <div>
+          <input
+            x-model="search"
+            type="text"
+            class="border p-2 w-full mb-2 mt-6"
+            placeholder="Search for something..."
+          />
+          <p>
+            <span class="font-bold">searching for:</span
+            ><span x-text="search"></span>
+          </p>
+        </div>
       </div>
     </div>
 
