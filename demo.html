@@ -113,6 +113,15 @@
 
         <!-- x-html -->
         <div x-html="(await axios.get('./partial.html')).data">...</div>
+
+        <!-- $el -->
+        <!-- Replace inner HTML for only one click one time -->
+        <button
+          x-on:click="$el.innerHTML = 'Hello-World' "
+          class="mt-4 p-4 border"
+        >
+          Replace Text
+        </button>
       </div>
     </div>
 
