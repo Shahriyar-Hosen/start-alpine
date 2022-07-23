@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine Js Start</title>
+  </head>
+  <body>
+      <div class="text-3xl font-serif m-52 flex flex-col justify-center content-center min-h-screen" x-data="quote">
+        <blockquote x-text="content"></blockquote>
+        <p class="text-lg mt-14" x-text="author">--</p>
+      </div>
+
+      <!-- Script -->
+      <!-- CDN -->
+      <script
+        defer
+        src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+      ></script>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <!-------------------------------------------->
+
+      <script>
+        const quote = {
+          content:
+            "If you do what you've always done, you'll get what you've always gotten.",
+          author: "--Tony Robbins",
+        };
+      </script>
+    </div>
+  </body>
+</html>
