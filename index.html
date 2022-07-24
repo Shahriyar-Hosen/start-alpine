@@ -168,6 +168,7 @@
           />
         </div>
 
+        <!-- data load -->
         <div
           class="text-3xl font-serif mt-10 flex flex-col justify-center content-center"
           x-data="quote"
@@ -223,8 +224,8 @@
       };
     </script>
 
-    <!-- Stores: Dark Mode -->
     <script>
+      // Stores: Dark Mode
       document.addEventListener("alpine:init", () => {
         Alpine.store("darkMode", {
           on: false,
@@ -235,6 +236,7 @@
         });
       });
 
+      // random data load
       // api.quotable.io/random
       const quote = {
         content: "",
