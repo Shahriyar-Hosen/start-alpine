@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine Js Start</title>
+  </head>
+  <body>
+      <div class="text-3xl font-serif m-52 flex flex-col justify-center content-center" x-data="quote" x-init="getQuote">
+        <blockquote x-text="content"></blockquote>
+        <p class="text-lg mt-14" x-text="author">--</p>
+      </div>
+
+      <!-- Script -->
+      
+      <!-- CDN -->
+      <script
+        defer
+        src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+      ></script>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <!-------------------------------------------->
+
+      <!-- api.quotable.io/random -->
+      <script>
+        const quote = {
+          content: "",
+          author: "",
+          getQuote(){
+          fetch("https://api.quotable.io/random")
+          .then(res => res.json())
+          .then(data => {
+            this.content = data.content
+            this.author = data.author
+          })
+        }
+        };
+        
+      </script>
+    </div>
+  </body>
+</html>
